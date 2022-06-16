@@ -1,0 +1,37 @@
+{
+	"extends": "@tsconfig/recommended/tsconfig.json",
+	"compilerOptions": {
+		"target": "ES2015",
+		"module": "commonjs",
+		"strict": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"allowJs": true,
+		"noEmit": true,
+		"incremental": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"baseUrl": "./app/",
+		"paths": {
+			"@components/*": ["components/*"],
+			"@components/ui/*": ["components/ui/*"],
+			"@components/screens/*": ["components/screens/*"],
+
+			"@assets/*": ["assets/*"],
+			"@config/*": ["config/*"],
+			"@hooks/*": ["hooks/*"],
+			"@services/*": ["services/*"],
+			"@shared/*": ["shared/*"],
+			"@store/*": ["store/*"],
+			"@utils/*": ["utils/*"]
+		}
+	},
+	"$schema": "https://json.schemastore.org/tsconfig",
+	"display": "Recommended",
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"exclude": ["node_modules"]
+}
