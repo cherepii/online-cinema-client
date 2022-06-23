@@ -1,0 +1,15 @@
+.slider {
+	@apply w-full h-full flex flex-col justify-between p-5;
+
+	.content {
+		@apply z-5;
+
+		> h3 {
+			@apply text-2lg text-gray-300 font-medium text-center;
+		}
+	}
+
+	.button {
+		@apply z-50;
+	}
+}

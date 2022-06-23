@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import Menu from './Menu'
-import { firstMenu, userMenu } from './data-and-types/menu.data'
+import { firstMenu } from './data-and-types/menu.data'
 import GenreMenu from './genres/GenreMenu'
 
 const MenuContainer: FC = () => {
@@ -9,7 +9,7 @@ const MenuContainer: FC = () => {
 		<div>
 			<Menu menu={firstMenu} />
 			<GenreMenu />
-			<Menu menu={userMenu} />
+			<Menu menu={{ title: 'General', links: [] }} />
 		</div>
 	)
 }

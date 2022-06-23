@@ -1,3 +1,5 @@
+import dynamic from 'next/dynamic'
+
 import FavoriteMovies from './FavoriteMovies/FavoriteMovies'
 import PopularMovies from './PopularMovies'
 

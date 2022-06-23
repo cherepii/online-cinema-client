@@ -1,19 +1,37 @@
-import Link from 'next/link'
+import { useEffect } from 'react'
 
-const isAuth = false
+import { useFavorites } from '@components/screens/favorites/useFavorites'
+import SkeletonLoader from '@components/ui/SkeletonLoader'
+
+import { useAuth } from '@hooks/useAuth'
+
+import MoviesList from '../MoviesList'
+
+import NotAuth from './NotAuth'
 
 const FavoriteMovies = () => {
-	return isAuth ? (
-		<div>FavoriteMovies</div>
-	) : (
-		<div className="text-white text-opacity-50 bg-gray-700 bg-opacity-30 text-sm rounded-md py-4 px-3 mt-4 text-center">
-			For viewing favorite movies, please{' '}
-			<Link href="/auth">
-				<a className="text-primary text-base underline underline-offset-2 font-medium">
-					log in
-				</a>
-			</Link>
+	const { user } = useAuth()
+	const { data, isLoading, refetch } = useFavorites()
+
+	useEffect(() => {
+		refetch()
+	}, [user])
+
+	if (!user) return <NotAuth />
+
+	return isLoading ? (
+		<div className="mx-8 mb-6">
+			<SkeletonLoader count={4} className="mt-2 h-7" />
 		</div>
+	) : (
+		<>
+			<MoviesList
+				link="/favorites"
+				movies={data ? data.slice(0, 3) : []}
+				title="Favorite Movies"
+			/>
+		</>
 	)
 }
+
 export default FavoriteMovies

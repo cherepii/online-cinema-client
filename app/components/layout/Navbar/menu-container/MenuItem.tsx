@@ -9,18 +9,20 @@ import styles from './Menu.module.scss'
 import { IMenuItem } from './data-and-types/menu.interface'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item }) => {
+	const { icon, link, title } = item
+
 	const { asPath } = useRouter()
 
 	return (
 		<li
 			className={cn({
-				[styles.active]: asPath === item.link,
+				[styles.active]: asPath === link,
 			})}
 		>
-			<Link href={item.link}>
+			<Link href={link}>
 				<a>
-					<Icon name={item.icon} />
-					<span>{item.title}</span>
+					<Icon name={icon} />
+					<span>{title}</span>
 				</a>
 			</Link>
 		</li>

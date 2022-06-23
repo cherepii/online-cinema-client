@@ -1,6 +1,8 @@
 import { AppProps } from 'next/app'
 import MainProvider from 'providers/MainProvider'
 
+import '@components/ui/slider/slider.scss'
+
 import '@assets/styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {

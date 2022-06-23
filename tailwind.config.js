@@ -70,10 +70,16 @@ module.exports = {
 						transform: 'scale(1)',
 					},
 				},
+				blur: {
+					to: {
+						backdropFilter: 'blur(3px)',
+					},
+				},
 			},
 			animation: {
 				fade: 'fade .4s ease-in-out',
-				scaleIn: 'scaleIn .35s ease-in-out',
+				scaleIn: 'scaleIn .15s ease-in-out',
+				blur: 'blur .45s ease-out forwards',
 			},
 		},
 	},

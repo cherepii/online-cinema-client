@@ -11,10 +11,18 @@
 		> button {
 			&:first-child {
 				@apply rounded-r-none;
+
+				&:disabled {
+					@apply opacity-50 bg-primary;
+				}
 			}
 
 			&:last-child {
 				@apply rounded-l-none opacity-80 hover:opacity-100 transition-opacity;
+
+				&:disabled {
+					@apply opacity-30 bg-primary hover:opacity-30;
+				}
 			}
 		}
 	}

@@ -1,13 +1,17 @@
+import Image from 'next/image'
 import { FC } from 'react'
-import { toastr } from 'react-redux-toastr'
+import AwesomeSlider from 'react-awesome-slider'
+import 'react-awesome-slider/dist/styles.css'
 
 import Heading from '@components/ui/Heading/Heading'
+import Slider from '@components/ui/slider/Slider'
 
 import Meta from '@utils/meta/Meta'
 
 import { IHome } from './home.interface'
 
-const Home: FC<IHome> = () => {
+const Home: FC<IHome> = ({ slides }) => {
+	console.log(slides)
 	return (
 		<Meta
 			title="Watch movies online"
@@ -17,6 +21,7 @@ const Home: FC<IHome> = () => {
 				title="Watch movies online"
 				className="text-gray-300 mb-8 text-xl"
 			/>
+			{slides.length && <Slider slides={slides} />}
 		</Meta>
 	)
 }

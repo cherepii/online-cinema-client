@@ -4,6 +4,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import Heading from '@components/ui/Heading/Heading'
 import Button from '@components/ui/form-elements/Button'
 
+import { useActions } from '@hooks/useActions'
 import { useAuth } from '@hooks/useAuth'
 
 import Meta from '@utils/meta/Meta'
@@ -28,13 +29,9 @@ const Auth: FC = () => {
 	} = useForm<IAuthInput>({
 		mode: 'onChange',
 	})
+	const { isDirty, isValid } = formState
 
-	const login = (data: any) => {
-		console.table(data)
-	}
-	const register = (data: any) => {
-		console.table(data)
-	}
+	const { login, register } = useActions()
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data)
@@ -57,15 +54,15 @@ const Auth: FC = () => {
 
 					<div className={styles.buttons}>
 						<Button
+							disabled={!isDirty || !isValid || isLoading}
 							type="submit"
-							disabled={isLoading}
 							onClick={() => setType('login')}
 						>
 							Login
 						</Button>
 						<Button
+							disabled={!isDirty || !isValid || isLoading}
 							type="submit"
-							disabled={isLoading}
 							onClick={() => setType('register')}
 						>
 							register
